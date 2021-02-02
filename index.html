@@ -16,7 +16,7 @@
      const params = new Map(window.location.search.slice(1)
                                   .split('&')
                                   .map(s => s.split('=')));
-     let [url, data] = params.get('url').split('?');
+     let [url, data] = decodeURIComponent(params.get('url')).split('?');
      data = data.replace(/%20/g,'+');
      
      const xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
